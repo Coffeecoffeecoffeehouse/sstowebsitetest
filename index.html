@@ -1,0 +1,25 @@
+<html>
+
+<script>
+async function getValueByID(searchID) {
+  const url = `https://script.google.com/macros/s/1HdlMcD_oZ1IqUECyQcQioE9ghDi1w0UYbHcYvTgFUyE1ugask5ypKCyC/exec?id=${searchID}`;
+  
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    
+    if (data.error) {
+      console.error('Fehler:', data.error);
+    } else {
+      console.log('Ergebnis:', data.value); // Ausgabe des Wertes aus Spalte C
+      // Hier kannst du den Wert z. B. in HTML einfügen
+    }
+  } catch (error) {
+    console.error('Fehler beim Abrufen der Daten:', error);
+  }
+}
+
+getValueByID("312"); // Beispiel: Ruft den Wert für die ID "12345" ab
+</script>
+
+</html>
